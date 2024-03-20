@@ -1,12 +1,13 @@
 from selenium.webdriver.common.by import By
 
+from pageObjects.BasePage import BasePage
 from pageObjects.MyAccountPage import MyAccountPageObjects
 
 
-class LoginPageObjects:
+class LoginPageObjects(BasePage):
 
     def __init__(self, driver):
-        self.driver = driver
+        super().__init__(driver)
 
     __email_filed_loc = (By.ID, "input-email")
     __password_filed_loc = (By.ID, "input-password")
@@ -26,6 +27,7 @@ class LoginPageObjects:
         return myAccount
 
     def no_match_warning_message_of_email_password(self, warning_message):
+
         message = self.driver.find_element(*self.__warning_message_of_email_password_loc).text
         if message.casefold().__contains__(warning_message.casefold()):
             return True

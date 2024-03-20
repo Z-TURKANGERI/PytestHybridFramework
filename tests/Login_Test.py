@@ -2,7 +2,7 @@ import pytest
 
 from pageObjects.HomePage import HomePageObjects
 from utilities import ExcelUtils
-from utilities.BaseTest import BaseClass
+from utilities.BaseClass import BaseClass
 
 
 class TestLogin(BaseClass):

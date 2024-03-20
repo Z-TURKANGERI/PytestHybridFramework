@@ -1,5 +1,5 @@
 from pageObjects.HomePage import HomePageObjects
-from utilities.BaseTest import BaseClass
+from utilities.BaseClass import BaseClass
 
 
 class TestSearch(BaseClass):

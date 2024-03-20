@@ -10,11 +10,19 @@ class BaseClass:
         time_stamp = datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
         return "zubertest" + time_stamp + "@gmail.com"
 
-    def type_into_element(self, locator_method, text):
+    def type_into_element14(self, locator_method, text):
         element = locator_method
         element.click()
         element.clear()
         element.send_keys(text)
+
+    def type_into_element(self, locator_method, text):
+        locator_method.send_keys(text)
+
+        # element = locator_method
+        # element.click()
+        # element.clear()
+        # element.send_keys(text)
 
     def click_on_element(self, locator_method):
         element = locator_method

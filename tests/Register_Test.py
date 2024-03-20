@@ -1,5 +1,5 @@
 from pageObjects.HomePage import HomePageObjects
-from utilities.BaseTest import BaseClass
+from utilities.BaseClass import BaseClass
 
 
 class Test_Login(BaseClass):
@@ -7,6 +7,7 @@ class Test_Login(BaseClass):
     def test_verify_register_by_providing_mandatory_fields(self):
         homePage = HomePageObjects(self.driver)
         registerPage = homePage.click_on_account_drop_down_and_click_on_register()
+
         self.type_into_element(registerPage.register_first_name(), "abc")
         # registerPage.register_first_name().send_keys("ABC")
         registerPage.register_last_name().send_keys("ABC")
