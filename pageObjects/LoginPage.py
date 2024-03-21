@@ -15,15 +15,17 @@ class LoginPageObjects(BasePage):
 
     __warning_message_of_email_password_loc = (By.XPATH, "//div[@class='alert alert-danger alert-dismissible']")
 
-    def email_field(self):
+    def email_field(self, *, send_keys):
         # return self.driver.find_element(*self.__email_filed_loc)
 
-        return self.find_element(self.__email_filed_loc)
+        # return self.find_element(self.__email_filed_loc)
+        return self.enter_text_into_element(self.__email_filed_loc, send_keys)
 
-    def password_field(self):
+    def password_field(self, *, send_keys):
 
         # return self.driver.find_element(*self.__password_filed_loc)
-        return self.find_element(self.__password_filed_loc)
+        # return self.find_element(self.__password_filed_loc)
+        return self.enter_text_into_element(self.__password_filed_loc, send_keys)
 
     def login_button(self):
         # self.driver.find_element(*self.__login_button_loc).click()

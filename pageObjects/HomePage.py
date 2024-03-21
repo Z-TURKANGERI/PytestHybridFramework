@@ -44,9 +44,10 @@ class HomePageObjects(BasePage):
         registerPage = RegisterPageObjects(self.driver)
         return registerPage
 
-    def search_box_field(self):
+    def search_box_field(self, *, send_keys):
         # return self.driver.find_element(*self.__search_box_filed_loc)
-        return self.find_element(self.__search_box_filed_loc)
+        return self.enter_text_into_element(self.__search_box_filed_loc, send_keys)
+        # return self.find_element(self.__search_box_filed_loc)
 
 
     def search_button(self):

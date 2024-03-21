@@ -20,33 +20,43 @@ class RegisterPageObjects(BasePage):
     __register_newsletter_yes_loc = (By.XPATH, "//label[text()='Yes']/input")
     __register_newsletter_no_loc = (By.XPATH, "//label[text()='No']/input")
 
-    def register_first_name(self):
+    def register_first_name(self, *, send_keys):
         # return self.driver.find_element(*self.__register_firstName_loc)
-        return self.find_element(self.__register_firstName_loc)
 
-    def register_last_name(self):
+        # return self.find_element(self.__register_firstName_loc)
+
+        return self.enter_text_into_element(self.__register_firstName_loc, send_keys)
+
+    def register_last_name(self, *, send_keys):
         # return self.driver.find_element(*self.__register_lastName_loc)
-        return self.find_element(self.__register_lastName_loc)
+        # return self.find_element(self.__register_lastName_loc)
 
-    def register_email(self):
+        return self.enter_text_into_element(self.__register_lastName_loc, send_keys)
+
+    def register_email(self, *, send_keys):
         # return self.driver.find_element(*self.__register_email_loc)
-        return self.find_element(self.__register_email_loc)
+        # return self.find_element(self.__register_email_loc)
+        return self.enter_text_into_element(self.__register_email_loc, send_keys)
 
-    def register_telephone(self):
+    def register_telephone(self, *, send_keys):
         # return self.driver.find_element(*self.__register_telephone_loc)
-        return self.find_element(self.__register_telephone_loc)
+        # return self.find_element(self.__register_telephone_loc)
+        return self.enter_text_into_element(self.__register_telephone_loc, send_keys)
 
-    def register_password(self):
+    def register_password(self, *, send_keys):
         # return self.driver.find_element(*self.__register_password_loc)
-        return self.find_element(self.__register_password_loc)
+        # return self.find_element(self.__register_password_loc)
+        return self.enter_text_into_element(self.__register_password_loc, send_keys)
 
-    def register_confirm_password(self):
+    def register_confirm_password(self, *, send_keys):
         # return self.driver.find_element(*self.__register_confirm_password_loc)
-        return self.find_element(self.__register_confirm_password_loc)
+        # return self.find_element(self.__register_confirm_password_loc)
+        return self.enter_text_into_element(self.__register_confirm_password_loc, send_keys)
 
-    def register_privacy_policy(self):
+    def register_click_on_privacy_policy(self):
         # return self.driver.find_element(*self.__register_privacy_policy_loc)
-        return self.find_element(self.__register_privacy_policy_loc)
+        # return self.find_element(self.__register_privacy_policy_loc)
+        self.click_element(self.__register_privacy_policy_loc)
 
     def register_continue_button_loc(self):
         # self.driver.find_element(*self.__register_continue_button_loc).click()
@@ -56,11 +66,12 @@ class RegisterPageObjects(BasePage):
         newAccountPage = NewAccountCreatedPageObjects(self.driver)
         return newAccountPage
 
-    def newsletter_YES(self):
+    def newsletter_click_YES(self):
         # return self.driver.find_element(*self.__register_newsletter_yes_loc)
-        return self.find_element(self.__register_newsletter_yes_loc)
+        # return self.find_element(self.__register_newsletter_yes_loc)
+        return self.click_element(self.__register_newsletter_yes_loc)
 
-    def newsletter_NO(self):
+    def newsletter_click_NO(self):
         # return self.driver.find_element(*self.__register_newsletter_no_loc)
-        return self.find_element(self.__register_newsletter_no_loc)
-
+        # return self.find_element(self.__register_newsletter_no_loc)
+        return self.click_element(self.__register_newsletter_no_loc)
