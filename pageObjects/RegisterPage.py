@@ -20,17 +20,26 @@ class RegisterPageObjects(BasePage):
     __register_newsletter_yes_loc = (By.XPATH, "//label[text()='Yes']/input")
     __register_newsletter_no_loc = (By.XPATH, "//label[text()='No']/input")
 
+    """     Error messages locator      """
+    __register_firstName_error_message = (
+        By.XPATH, "//div[contains(text(),'First Name must be between 1 and 32 characters!')]")
+    __register_lastName_error_message = (
+        By.XPATH, "//div[contains(text(),'Last Name must be between 1 and 32 characters!')]")
+    __register_email_error_message = (By.XPATH, "//div[contains(text(),'E-Mail Address does not appear to be valid!')]")
+    __register_telephone_error_message = (
+        By.XPATH, "//div[contains(text(),'Telephone must be between 3 and 32 characters!')]")
+    __register_password_error_message = (
+        By.XPATH, "//div[contains(text(),'Password must be between 4 and 20 characters!')]")
+    __register_privacy_policy_error_message = (By.XPATH, "//div[@class='alert alert-danger alert-dismissible']")
+
     def register_first_name(self, *, send_keys):
         # return self.driver.find_element(*self.__register_firstName_loc)
-
         # return self.find_element(self.__register_firstName_loc)
-
         return self.enter_text_into_element(self.__register_firstName_loc, send_keys)
 
     def register_last_name(self, *, send_keys):
         # return self.driver.find_element(*self.__register_lastName_loc)
         # return self.find_element(self.__register_lastName_loc)
-
         return self.enter_text_into_element(self.__register_lastName_loc, send_keys)
 
     def register_email(self, *, send_keys):
@@ -60,9 +69,7 @@ class RegisterPageObjects(BasePage):
 
     def register_continue_button_loc(self):
         # self.driver.find_element(*self.__register_continue_button_loc).click()
-
         self.click_element(self.__register_continue_button_loc)
-
         newAccountPage = NewAccountCreatedPageObjects(self.driver)
         return newAccountPage
 
@@ -75,3 +82,27 @@ class RegisterPageObjects(BasePage):
         # return self.driver.find_element(*self.__register_newsletter_no_loc)
         # return self.find_element(self.__register_newsletter_no_loc)
         return self.click_element(self.__register_newsletter_no_loc)
+
+    def first_name_error_message(self):
+        return self.get_element_text(self.__register_firstName_error_message)
+        # return self.find_element(self.__register_firstName_error_message)
+
+    def last_name_error_message(self):
+        return self.get_element_text(self.__register_lastName_error_message)
+        # return self.find_element(self.__register_lastName_error_message)
+
+    def email_error_message(self):
+        return self.get_element_text(self.__register_email_error_message)
+        # return self.find_element(self.__register_email_error_message)
+
+    def telephone_error_message(self):
+        return self.get_element_text(self.__register_telephone_error_message)
+        # return self.find_element(self.__register_telephone_error_message)
+
+    def password_error_message(self):
+        return self.get_element_text(self.__register_password_error_message)
+        # return self.find_element(self.__register_password_error_message)
+
+    def privacy_policy_error_message(self):
+        return self.get_element_text(self.__register_privacy_policy_error_message)
+        # return self.find_element(self.__register_privacy_policy_error_message)

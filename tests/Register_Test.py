@@ -33,3 +33,34 @@ class TestLogin(BaseClass):
         registerPage.register_click_on_privacy_policy()
         newAccountPage = registerPage.register_continue_button_loc()
         assert newAccountPage.new_account_created_message().is_displayed()
+
+    def test_verify_error_message_for_all_mandatory_fields(self):
+        homePage = HomePageObjects(self.driver)
+        registerPage = homePage.click_on_account_drop_down_and_click_on_register()
+        registerPage.register_continue_button_loc()
+
+        assert registerPage.first_name_error_message() == "First Name must be between 1 and 32 characters!"
+        assert registerPage.last_name_error_message() == "Last Name must be between 1 and 32 characters!"
+        assert registerPage.email_error_message() == "E-Mail Address does not appear to be valid!"
+        assert registerPage.telephone_error_message() == "Telephone must be between 3 and 32 characters!"
+        assert registerPage.password_error_message() == "Password must be between 4 and 20 characters!"
+        assert registerPage.privacy_policy_error_message() == "Warning: You must agree to the Privacy Policy!"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
