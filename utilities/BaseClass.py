@@ -25,30 +25,3 @@ class BaseClass:
         elif phone_number is not None:
             """Fixture to generate a fake phone number."""
             return self.fake.phone_number()
-
-
-    def type_into_element14(self, locator_method, text):
-        element = locator_method
-        element.click()
-        element.clear()
-        element.send_keys(text)
-
-    def type_into_element(self, locator_method, text):
-        locator_method.send_keys(text)
-
-        # element = locator_method
-        # element.click()
-        # element.clear()
-        # element.send_keys(text)
-
-    def click_on_element(self, locator_method):
-        element = locator_method
-        element.click()
-
-    def check_display_status_of_element(self, locator_method):
-        element = locator_method
-        return element.is_displayed()
-
-    def retrieve_element_text(self, locator_method):
-        element = locator_method
-        return element.text

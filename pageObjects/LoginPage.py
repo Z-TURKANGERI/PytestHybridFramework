@@ -22,7 +22,6 @@ class LoginPageObjects(BasePage):
         return self.enter_text_into_element(self.__email_filed_loc, send_keys)
 
     def password_field(self, *, send_keys):
-
         # return self.driver.find_element(*self.__password_filed_loc)
         # return self.find_element(self.__password_filed_loc)
         return self.enter_text_into_element(self.__password_filed_loc, send_keys)
@@ -39,7 +38,6 @@ class LoginPageObjects(BasePage):
         # message = self.driver.find_element(*self.__warning_message_of_email_password_loc).text
 
         message = self.get_element_text(self.__warning_message_of_email_password_loc)
-
 
         if message.casefold().__contains__(warning_message.casefold()):
             return True

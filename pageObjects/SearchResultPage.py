@@ -16,7 +16,6 @@ class SearchResultPageObjects(BasePage):
 
         products = self.find_element(self.__result_products, multiple=True)
 
-
         specified_name = product_name.casefold()
 
         for product in products:

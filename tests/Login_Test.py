@@ -9,6 +9,7 @@ class TestLogin(BaseClass):
 
     @pytest.mark.parametrize("email,password",
                              ExcelUtils.get_data_from_excel("excelFiles/TutorialsNinja.xlsx", "LoginTest"))
+    @pytest.mark.smoke
     def test_logging_with_valid_credential(self, email, password):
         homePage = HomePageObjects(self.driver)
         loginPage = homePage.click_on_account_drop_down_and_click_on_logic()
