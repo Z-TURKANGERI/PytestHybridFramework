@@ -31,6 +31,7 @@ class RegisterPageObjects(BasePage):
     __register_password_error_message = (
         By.XPATH, "//div[contains(text(),'Password must be between 4 and 20 characters!')]")
     __register_privacy_policy_error_message = (By.XPATH, "//div[@class='alert alert-danger alert-dismissible']")
+    __register_confirm_password_error_message = (By.CSS_SELECTOR, ".text-danger")
 
     def register_first_name(self, *, send_keys):
         # return self.driver.find_element(*self.__register_firstName_loc)
@@ -106,3 +107,7 @@ class RegisterPageObjects(BasePage):
     def privacy_policy_error_message(self):
         return self.get_element_text(self.__register_privacy_policy_error_message)
         # return self.find_element(self.__register_privacy_policy_error_message)
+
+    def confirm_password_error_message(self):
+        return self.get_element_text(self.__register_confirm_password_error_message)
+        # return self.find_element(self.__register_confirm_password_error_message)

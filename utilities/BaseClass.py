@@ -25,3 +25,17 @@ class BaseClass:
         elif phone_number is not None:
             """Fixture to generate a fake phone number."""
             return self.fake.phone_number()
+
+    def get_page_title(self, expected_title):
+        return self.driver.title == expected_title
+
+    # def get_page_title1(self, expected_title):
+    #     count = 0
+    #     page_title = self.driver.title
+    #
+    #     while (page_title != expected_title) and count<=10:
+    #         count += 1
+    #         page_title = self.driver.title
+
+
+
