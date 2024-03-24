@@ -30,8 +30,9 @@ class RegisterPageObjects(BasePage):
         By.XPATH, "//div[contains(text(),'Telephone must be between 3 and 32 characters!')]")
     __register_password_error_message = (
         By.XPATH, "//div[contains(text(),'Password must be between 4 and 20 characters!')]")
-    __register_privacy_policy_error_message = (By.XPATH, "//div[@class='alert alert-danger alert-dismissible']")
+    __register_privacy_policy_warning_message = (By.XPATH, "//div[@class='alert alert-danger alert-dismissible']")
     __register_confirm_password_error_message = (By.CSS_SELECTOR, ".text-danger")
+    __register_email_warning_message = (By.XPATH, "//div[@class='alert alert-danger alert-dismissible']")
 
     def register_first_name(self, *, send_keys):
         # return self.driver.find_element(*self.__register_firstName_loc)
@@ -43,10 +44,16 @@ class RegisterPageObjects(BasePage):
         # return self.find_element(self.__register_lastName_loc)
         return self.enter_text_into_element(self.__register_lastName_loc, send_keys)
 
-    def register_email(self, *, send_keys):
-        # return self.driver.find_element(*self.__register_email_loc)
+    def register_email1(self):
+        return self.driver.find_element(*self.__register_email_loc)
         # return self.find_element(self.__register_email_loc)
-        return self.enter_text_into_element(self.__register_email_loc, send_keys)
+        # return self.enter_text_into_element(self.__register_email_loc, send_keys)
+
+    def register_email(self, *, send_keys=None):
+        if send_keys is not None:
+            return self.enter_text_into_element(self.__register_email_loc, send_keys)
+        else:
+            return self.find_element(self.__register_email_loc)
 
     def register_telephone(self, *, send_keys):
         # return self.driver.find_element(*self.__register_telephone_loc)
@@ -104,10 +111,13 @@ class RegisterPageObjects(BasePage):
         return self.get_element_text(self.__register_password_error_message)
         # return self.find_element(self.__register_password_error_message)
 
-    def privacy_policy_error_message(self):
-        return self.get_element_text(self.__register_privacy_policy_error_message)
+    def privacy_policy_warning_message(self):
+        return self.get_element_text(self.__register_privacy_policy_warning_message)
         # return self.find_element(self.__register_privacy_policy_error_message)
 
     def confirm_password_error_message(self):
         return self.get_element_text(self.__register_confirm_password_error_message)
         # return self.find_element(self.__register_confirm_password_error_message)
+
+    def email_already_registered_warning_message(self):
+        return self.get_element_text(self.__register_email_warning_message)
